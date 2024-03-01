@@ -1,9 +1,9 @@
-# Welcome to streamlit
+# Applied Cryptography
 
 by: Christian Jay Tibi
 
-This is the app you get when you run `streamlit hello`, extracted as its own app.
+This app is a demonstration of some of the most basic encryption and decryption algorithms in Applied Cryptography.
 
-Edit [Hello.py](./Hello.py) to customize this app to your heart's desire. ❤️
+Check it out on [Streamlit](https://tibi-cs3b.streamlit.app/) ❤️
 
-Check it out on [Streamlit Community Cloud](https://st-hello-app.streamlit.app/)
+
