@@ -26,9 +26,9 @@ def xor_decrypt(ciphertext, key):
 
 def encrypt_decrypt(plaintext, key) -> None:
     if plaintext == key:
-        st.write("Plaintext should not be equal to the key")
+        st.write("Plaintext should not be equal to the key.")
     elif len(plaintext) < len(key):
-        st.write("Plaintext length should be equal or greater than the length of key")
+        st.write("Plaintext length should be equal or greater than the length of key.")
     else:   
         ciphertext = xor_encrypt(plaintext, key)
         st.write(f"Ciphertext: {ciphertext.decode()}")
