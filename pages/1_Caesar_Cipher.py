@@ -25,6 +25,7 @@ def encrypt_decrypt(text, shift_keys, ifdecrypt):
     return result
     
 if __name__ == '__main__':
+    st.title("_Caesar_ Cipher :lock:")
     text = st.text_area(label="Plaintext")
     shift_keys = list(map(int, st.text_input(label="Shift keys").split()))
     

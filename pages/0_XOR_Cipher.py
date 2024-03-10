@@ -37,6 +37,7 @@ def encrypt_decrypt(plaintext, key) -> None:
 
 
 if __name__ == "__main__":
+    st.title("_XOR_ Cipher :lock:")
     plaintext = bytes(st.text_area(label="Plaintext").encode())
     key = bytes(st.text_input(label="Key").encode())
 
