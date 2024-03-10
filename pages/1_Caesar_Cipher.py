@@ -29,14 +29,18 @@ def encrypt_decrypt(text, shift_keys, ifdecrypt):
     
 if __name__ == '__main__':
     st.title("_Caesar_ Cipher :lock:")
-    text = st.text_area(label="Plaintext")
-    shift_keys = list(map(int, st.text_input(label="Shift keys").split()))
+    text = st.text_area(label="Plaintext", value="Insert text here.")
+    try:
+        shift_keys = list(map(int, st.text_input(label="Shift keys", value="1 2 3").split()))
+        if st.button("Encrypt"):
+            encrypted = encrypt_decrypt(text, shift_keys, ifdecrypt=False)
+            decrypted = encrypt_decrypt(encrypted, shift_keys, ifdecrypt= True)
+            
+            st.write(f'Text: {text}')
+            st.write('Shift keys:', *shift_keys)
+            st.write(f'Cipher: {encrypted}')
+            st.write(f'Decrypted text: {decrypted}')
+    except ValueError:
+        st.error("Shift keys are invalid.")
     
-    if st.button("Encrypt"):
-        encrypted = encrypt_decrypt(text, shift_keys, ifdecrypt=False)
-        decrypted = encrypt_decrypt(encrypted, shift_keys, ifdecrypt= True)
-        
-        st.write(f'Text: {text}')
-        st.write('Shift keys:', *[str(key) for key in shift_keys])
-        st.write(f'Cipher: {encrypted}')
-        st.write(f'Decrypted text: {decrypted}')
+    
