@@ -1,5 +1,8 @@
 import streamlit as st
 
+st.set_page_config(
+    page_title="Caesar Cipher"
+)
 
 def encrypt_decrypt(text, shift_keys, ifdecrypt):
     """

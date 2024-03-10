@@ -20,13 +20,11 @@ LOGGER = get_logger(__name__)
 
 def run():
     st.set_page_config(
-        page_title="Hello",
-        page_icon="👋",
+        page_title="Applied Cryptography",
+        page_icon=":unlock:",
     )
 
-    st.write("# Welcome to Streamlit! 👋")
-
-    st.sidebar.success("Select a demo above.")
+    st.write("# Applied Cryptography 🕵🏻")
 
     st.markdown(
         """
