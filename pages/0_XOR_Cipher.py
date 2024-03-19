@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(
-    page_title="XOR Cipher"
+    page_title="XOR Cipher",
+    layout="wide"
 )
 
 def xor_encrypt(plaintext, key):
@@ -37,7 +38,8 @@ def xor_encrypt(plaintext, key):
             "key_bytes": "Key Bytes",
             "cipher_bytes": "Cipher Bytes"
         },
-        use_container_width=True
+        use_container_width=True,
+        height= (len(plaintext) + 1) * 35
     )
     return ciphertext
 
@@ -52,6 +54,8 @@ def encrypt_decrypt(plaintext, key) -> None:
         st.error("Plaintext and key should not be the same.")
     elif len(plaintext) < len(key):
         st.error("The length of plaintext should be greater than or equal to the length of key.")
+    elif not key:
+        st.error("Please enter a key.")
     else:
         ciphertext = xor_encrypt(plaintext, key)
         st.write(f"Ciphertext: {ciphertext.decode()}")
@@ -61,8 +65,12 @@ def encrypt_decrypt(plaintext, key) -> None:
 
 if __name__ == "__main__":
     st.title("_XOR_ Cipher :lock:")
-    plaintext = bytes(st.text_area(label="Plaintext", value="Insert text here.").encode())
-    key = bytes(st.text_input(label="Key", value="key").encode())
+    col = st.columns(2)
+
+    with col[0]:
+        plaintext = bytes(st.text_area(label="Plaintext", value="Insert text here.").encode())
+    with col[1]:
+        key = bytes(st.text_area(label="Key", value="key").encode())
 
     if st.button("Encrypt"):
         encrypt_decrypt(plaintext, key)
